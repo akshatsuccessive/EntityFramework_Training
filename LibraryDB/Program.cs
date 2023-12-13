@@ -12,13 +12,21 @@ namespace EF_Exercise
         {
             using (LibraryContext context = new LibraryContext())
             {
-                //var newBook = new Book() { BookId = 2, Title = "Sapiens", BookAuthor = newAuthor };
-                //context.Books.Add(newBook);
-                //context.SaveChanges();
+                //var authors = context.Authors.ToList();
+                //foreach (var item in authors)
+                //{
+                //    Console.WriteLine("{0}\t{1}", item.AuthorId, item.AuthorName);
+                //}
 
-                Console.WriteLine("Database Created Successfully");
+                var myBooks = context.Books.ToList();
+                foreach (var book in myBooks)
+                {
+                    Console.WriteLine("{0} - {1} - {2} - {3}", book.BookId, book.Title, book.AuthorId, book.PersonId);
+                }
+
+                //Console.WriteLine("Database Created Successfully");
                 Console.ReadKey();
-            }  
+            }
         }
     }
 }
