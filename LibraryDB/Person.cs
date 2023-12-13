@@ -10,7 +10,5 @@ namespace EF_Exercise
     {
         public int PersonId { get; set; }
         public string PersonName { get; set; }
-        public int BookId { get; set; }
-        public virtual ICollection<Book> BooksIssued { get; set; }
     }
 }
