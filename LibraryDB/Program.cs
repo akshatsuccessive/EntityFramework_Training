@@ -13,22 +13,6 @@ namespace EF_Exercise
         {
             using (LibraryContext context = new LibraryContext())
             {
-                //var newBook = new Book() { BookId = 2, Title = "Sapiens", BookAuthor = newAuthor };
-                //context.Books.Add(newBook);
-                //context.SaveChanges();
-
-                //var authors = context.Authors.ToList();
-                //foreach (var item in authors)
-                //{
-                //    Console.WriteLine("{0}\t{1}", item.AuthorId, item.AuthorName);
-                //}
-
-                //var myBooks = context.Books.ToList();
-                //foreach (var book in myBooks)
-                //{
-                //    Console.WriteLine("{0} - {1} - {2} - {3}", book.BookId, book.Title, book.AuthorId, book.PersonId);
-                //}
-
                 bool endProcess = false;
                 do
                 {
@@ -109,10 +93,12 @@ namespace EF_Exercise
 
                         case "4":
                             Console.WriteLine("\nAll Books :- \n");
+                            Console.WriteLine("BookId \t Book Title");
+                            Console.WriteLine("------ \t ----------");
                             var allBooks = context.Books.ToList();
                             foreach (var book in allBooks)
                             {
-                                Console.WriteLine("{0}.\t {1}", book.BookId, book.Title);
+                                Console.WriteLine("{0}.\t {1, -5}", book.BookId, book.Title);
                             }
                             Console.WriteLine("\n");
                             break;
@@ -120,9 +106,11 @@ namespace EF_Exercise
                         case "5":
                             Console.WriteLine("\nAll Authors :- \n");
                             var allAuths = context.Authors.ToList();
+                            Console.WriteLine("AuthorId \t Author Name");
+                            Console.WriteLine("-------- \t -----------");
                             foreach (var auth in allAuths)
                             {
-                                Console.WriteLine("{0}.\t {1}", auth.AuthorId, auth.AuthorName);
+                                Console.WriteLine("{0}.\t\t {1}", auth.AuthorId, auth.AuthorName);
                             }
                             Console.WriteLine("\n");
                             break;
@@ -130,9 +118,11 @@ namespace EF_Exercise
                         case "6":
                             Console.WriteLine("\nAll Persons :- \n");
                             var allMembers = context.Persons.ToList();
+                            Console.WriteLine("PersonId \t Person Name");
+                            Console.WriteLine("-------- \t -----------");
                             foreach (var person in allMembers)
                             {
-                                Console.WriteLine("{0}.\t {1}", person.PersonId, person.PersonName);
+                                Console.WriteLine("{0}.\t\t {1}", person.PersonId, person.PersonName);
                             }
                             Console.WriteLine("\n");
                             break;
